@@ -1,5 +1,8 @@
 from fastapi import FastAPI
+
 from backend.routes.auth import router as auth_router
+from backend.routes.research import router as research_router
+from backend.routes.document import router as document_router
 
 app = FastAPI(
     title="InsightSphere AI",
@@ -8,6 +11,8 @@ app = FastAPI(
 )
 
 app.include_router(auth_router)
+app.include_router(research_router)
+app.include_router(document_router)
 
 @app.get("/")
 def root():
